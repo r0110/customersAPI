@@ -10,7 +10,12 @@ var OrderSchema = new Schema({
     orderDate: {
         type: Date,
         required: true
+    },
+    customer: {
+        type: Schema.Types.ObjectId,
+        ref: 'Customer',
+        required: true
     }
 });
 
-module.exports = mongoose.model('Orders', OrderSchema);
+module.exports = mongoose.model('Order', OrderSchema);
