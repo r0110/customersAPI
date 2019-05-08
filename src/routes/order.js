@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var orderController = require('../controllers/orderController');
+var orderController = require('../controllers/OrderController');
 
 // POST
 router.post('/order',orderController.addOrder);
