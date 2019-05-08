@@ -3,6 +3,8 @@ var app = express();
 const PORT = process.env.PORT || 3000;
 var bodyParser = require('body-parser');
 
+require('dotenv').config();
+
 // Routes:
 var personRoute = require('./routes/person');
 var customerRoute = require('./routes/customer');
@@ -10,7 +12,7 @@ var orderRoute = require('./routes/order');
 
 //Database
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/customers', {useNewUrlParser: true});
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true});
 
 app.use((req, res, next) => {
     console.log(`${new Date().toString()} ===> ${req.originalUrl}`);
